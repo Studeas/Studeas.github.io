@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'siyuansongti';
+  font-display: swap;
+  src: url('../font/SourceHanSerifCN-Light.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'siyuansongti-m';
+  font-display: swap;
+  src: url('../font/SourceHanSerifCN-Medium.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'siyuansongti-h';
+  font-display: swap;
+  src: url('../font/SourceHanSerifCN-Heavy.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'siyuanheiti-b';
+  font-display: swap;
+  src: url('../font/SourceHanSansCN-Bold.ttf') format("truetype");
+}
+body {
+  font-family: 'siyuansongti','siyuansongti-m','siyuansongti-h','siyuanheiti-b';
+}
