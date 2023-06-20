@@ -1,23 +1,7 @@
 @font-face {
-  font-family: 'siyuansongti';
+  font-family: 'lanting';
+  src: url("../fonts/lanting/lanting.eot"); /* IE9 */
+  src: url("../fonts/lanting/lanting.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */ url("../fonts/lanting/lanting.woff2") format('woff2'), url("../fonts/lanting/lanting.woff") format('woff'), url("../fonts/lanting/lanting.ttf") format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  font-weight: 300;
   font-display: swap;
-  src: url('../font/SourceHanSerifCN-Light.ttf') format("truetype");
-}
-@font-face {
-  font-family: 'siyuansongti-m';
-  font-display: swap;
-  src: url('../font/SourceHanSerifCN-Medium.ttf') format("truetype");
-}
-@font-face {
-  font-family: 'siyuansongti-h';
-  font-display: swap;
-  src: url('../font/SourceHanSerifCN-Heavy.ttf') format("truetype");
-}
-@font-face {
-  font-family: 'siyuanheiti-b';
-  font-display: swap;
-  src: url('../font/SourceHanSansCN-Bold.ttf') format("truetype");
-}
-body {
-  font-family: 'siyuansongti','siyuansongti-m','siyuansongti-h','siyuanheiti-b';
 }
