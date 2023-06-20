@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Studeas">
+
+
+
+    <meta name="description" content="唯一正确的智慧，居住在远离人类的伟大孤独之中">
+
+
+
+<title>读书| 2023年6月 | Studeas 的博客</title>
+
+
+
+    <link rel="icon" href="/image/%E9%BB%91%E7%8C%AB.jpeg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Studeas 的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Studeas 的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">读书| 2023年6月</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">June 20, 2023&nbsp;&nbsp;22:48:15</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>不算冲动，斥一笔“小巨款”买了一本电子阅读器iReader Neo Pro，截至目前使用体检极佳，嘿嘿。不过据说国产电子书阅读器并不是很耐用，希望别让我失望，过几个月再写使用测评，让我们拭目以待。</p>
+<h2 id="《悉达多》"><a href="#《悉达多》" class="headerlink" title="《悉达多》"></a>《悉达多》</h2><p>[德] 赫尔曼·黑塞 著；姜乙 译</p>
+<blockquote>
+<p>审视世界、解释世界或藐视世界，或许是思想家的事。我唯一的事，是爱这个世界。不藐视世界，不憎恶世界和自己，怀抱爱，惊叹和敬畏地注视一切存在之物和我自己。</p>
+</blockquote>
+<p>这本书前前后后拖得挺久，只是6月读完而已。其实仅有一百多页的篇幅，不超过两个小时就能看完的，拖这么久是因为上个月精神状态属实不佳，看书没个规律，有时候心血来潮随便抓一本什么书读它个三四小时，有时候却满脑子升学焦虑索性把读书的趣味忘得一干二净。这本书就这么断断续续读完，之后肯定还会二刷三刷的。</p>
+<p>回到这本书，我认为亮点有两个，其一，终其一生思考阿特曼的悉达多最终圆融成圣，积极的结局（也许是个亮点，因为我真的喜欢欢喜收场），其二，本书文学性很好，翻译也是相当得精彩，喜欢上这本书百分之三十是翻译的功劳，我想我还会找来姜乙的译著来读。</p>
+<p>与其说悉达多最终成圣，不如说他一开始便已经是圣人。意识到阿特曼（自我）的存在并且开始感受它挖掘它，这是转变的第一步，他从婆罗门之子既然投身沙门行列。沙门的生活是刻意的，刻意地压抑自我，甚至自我探索的程度都没有达到，因为沙门对“我”并没有什么关切。悉达多走了，他和挚友乔文达投向佛陀乔达摩。佛陀的教义不是对自我的可以压制，他关心阿特曼，积极地关心阿特曼，是想要找出一些意义的。乔文达留下，悉达多又离去了，因为他并不觉得我之外的什么人能带我达成圆融。很奇怪，他投向世俗，他用沙门的反面，他彻底释放自我，通过这种方式感受阿特曼。但是自我的释放却带来自我的孱弱，极度的幽闭与极度的自由，圈进它或是释放它，都不能捕捉它。但是为什么要捕捉它？悉达多又离去了，他最后的师、最后的圣是船夫与河。归于自然，顺其自然，不去追求圆融，才不会破坏完整，不去捕捉自我，自我才真的鲜活。无我之境是也。</p>
+<p>（这本小册子还要再读的，有什么新的感受再来补充…</p>
+<h2 id="《棋王·树王·孩子王》"><a href="#《棋王·树王·孩子王》" class="headerlink" title="《棋王·树王·孩子王》"></a>《棋王·树王·孩子王》</h2><p>阿城 著</p>
+<p>这是我第一次读阿城的书。是在豆瓣上看到的，果断去文图借了一本，迅速看完，好看！</p>
+<p>这是三篇短篇小说，故事都发生在那个特殊的年代，三个“正常人”的故事罢了。语言比较平，但是扎实，没有炫技，一切都很自然地进行下去，情节紧扣，人物鲜活，文字功底令人欣赏。</p>
+<p>三个“王”也绝非什么俗世奇人，但是是那环境下的“怪人”，中国历来有志怪的文学传统，写三王倒是别有趣味，因为在正常的社会中这三人哪有什么不正常之处？！不过在那环境中，三王是三个英雄。</p>
+<p>最喜欢的是棋王。树王最悲壮，孩子王最温暖，棋王最英雄。</p>
+<h2 id="《失明症漫记》"><a href="#《失明症漫记》" class="headerlink" title="《失明症漫记》"></a>《失明症漫记》</h2><p>[葡] 若泽·萨拉马戈 著</p>
+<blockquote>
+<p>我想我们没有失明，我想我们现在是盲人；能看得见的盲人；能看但又看不见的盲人。</p>
+</blockquote>
+<p>失明症漫记是一场思想实验。如果所有的人渐次失明，只有一人视力仍在，她将会看见怎样的世界？从第一个人失明开始，世界已经开始失序了，道德已经开始松动——偷车贼无愧地偷了盲人的车。此后发生的一切都在意料之内，人就是这样的，社会就是这样的。瞎子不会再拥有体面。视线的模糊也是边界的模糊，人和直接的肮脏之物再也难分彼此。瞎子的社会（或许根本算不上社会）满是赤裸和赤裸的恶意，仅存的善意并不足以建立道德秩序，根本无法重构社会。可是这些丑的东西，似乎在我们没有失明的世界里一样不少，我们和盲人的根本区别是什么？如果说失去光明就失去人的尊严，那拥有光明就意味着拥有人的尊严吗？作者看，未必。</p>
+<p>最具有悲剧色彩的人是没有失明的人。她看到了一切。在失明的世界里她是全知的上帝。她看到了，看不到的人是不会在意这些的，人们太擅长忘记。</p>
+<h2 id="《她来自马里乌波尔》Sie-kam-aus-Mariupol"><a href="#《她来自马里乌波尔》Sie-kam-aus-Mariupol" class="headerlink" title="《她来自马里乌波尔》Sie kam aus Mariupol"></a>《她来自马里乌波尔》Sie kam aus Mariupol</h2><p>[德] 娜塔莎·沃丁 著  </p>
+<blockquote>
+<p>那一夜之后，他们怀着对死亡的恐惧度日，也是在那一夜，莉迪娅失去了对上帝的信仰。&#x2F;&#x2F;</p>
+<p>莉迪娅原本认为，只有空气和干草才能被压缩，但是后来发现——原来人也能被压缩。&#x2F;&#x2F;</p>
+<p>每个人都在追求一样活计，一份收入和一种存在。</p>
+</blockquote>
+<p>一部个人史、家族史、二十世纪东欧灾难史。全书很有趣，从书的缘起讲起，逐渐过渡到历史的书写。她带着读者一起挖掘家族史，很引人入胜。这本书的畅销也许和俄乌战争有些关系。乌克兰、俄国人民都蒙受了太多的苦难。</p>
+<p><em>奥德赛之旅：</em>奥德修斯之旅，从特洛伊战败回乡，历经千辛万苦，克服诱惑，战胜巨人，杀死无赖，是荡气回肠的故事。</p>
+<h2 id="《孽子》"><a href="#《孽子》" class="headerlink" title="《孽子》"></a>《孽子》</h2><p>白先勇 著</p>
+<p>在读，文字和情感真细腻啊..</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E8%AF%BB%E4%B9%A6/"># 读书</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/02/14/%E4%BA%8C%E6%9C%88%E9%97%BD%E5%8C%97%E6%B8%B8%E8%AE%B0/">二月闽北游记</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Studeas | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
