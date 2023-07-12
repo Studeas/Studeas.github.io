@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Studeas">
+
+
+
+    <meta name="description" content="唯一正确的智慧，居住在远离人类的伟大孤独之中">
+
+
+
+<title>读书 | 2023年7月 | Studeas 的博客</title>
+
+
+
+    <link rel="icon" href="/image/%E9%BB%91%E7%8C%AB.jpeg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">Studeas 的博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">Studeas 的博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">Posts</a>
+                
+                    <a class="menu-item" href="/tag">Tags</a>
+                
+                    <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">读书 | 2023年7月</h1>
+            
+                <div class="post-meta">
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">July 3, 2023&nbsp;&nbsp;10:43:19</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="《生活蒙太奇》"><a href="#《生活蒙太奇》" class="headerlink" title="《生活蒙太奇》"></a>《生活蒙太奇》</h2><p>绘本</p>
+<h2 id="《少年维特的烦恼》"><a href="#《少年维特的烦恼》" class="headerlink" title="《少年维特的烦恼》"></a>《少年维特的烦恼》</h2><p>[德] 歌德</p>
+<h2 id="《看见》"><a href="#《看见》" class="headerlink" title="《看见》"></a>《看见》</h2><p>柴静</p>
+<blockquote>
+<p>差点脱口而出“你没有权利放弃”，顿了一下，这个想法是错的，他当然有权利放弃，正义是自己内心对自己的期许，不是用来胁迫人的，我改口成“你判断要不要放弃。”</p>
+</blockquote>
+<p>每个人都能选择勇敢，同样可以选择放弃，不必站在道德制高点上去谴责任何人。</p>
+<blockquote>
+<p>许多事情，是有人相信，才会存在。</p>
+</blockquote>
+<p>有些事情，我们甚至无法证明其存在，却只能相信其存在。有时候却很神奇，当大多数人都相信其存在，这信念中的东西就真的存在了。</p>
+<blockquote>
+<p>“痛苦是财富，这话是扯淡。姑娘，痛苦就是痛苦，”他说，“对痛苦的思考才是财富。”</p>
+</blockquote>
+<p>拒绝美化痛苦，即使从中能够汲取力量。</p>
+<blockquote>
+<p>思想的本质是不安，一个人一旦左右摇摆，新的思想萌芽就出现了，自会剥离掉泥土露出来。</p>
+</blockquote>
+<p>反思带来的不安是幸福的敌人，永远在反思的人是不幸的，但是丧失反思能力的人同样可怜。</p>
+<blockquote>
+<p>美国最高法院的大法官霍尔姆斯说：“法律不是一个道德或是伦理问题。它的作用是制定规则，规则的意义不在于告诉社会成员如何生活，而是告诉他们，在规则遭到破坏时，他们可以预期到会得到什么。”</p>
+</blockquote>
+<p>回想起在看理想节目中听过，法律的重要作用就是给予人类社会某种可预测性，给予人们安全感。</p>
+<blockquote>
+<p>他界定“观察”的实质是：“不赞美，不责难，甚至也不惋惜，但求了解认识而已。”——斯宾诺莎</p>
+</blockquote>
+<blockquote>
+<p>“你的主题要蕴涵在结构里，不要蕴涵在只言片语里，要追求整个结构的力量。”</p>
+<p>“你有自己认识事物的坐标系吗？</p>
+</blockquote>
+<p>如何认识和把握事物？想起来一句话，“人心惟危，道心惟微，惟精惟一，允执厥中”。迈出的第一步，成为合格的观察者，成为情感的体验者，理智的运用者，身处其内，察乎其外。</p>
+<blockquote>
+<p>控制不了自己，就是心里不自由。</p>
+</blockquote>
+<blockquote>
+<p>改善常常是不可能的，但多多少少，因为他的存在，我体会到了一些从没想过、未曾明白的东西——把自我交付出去，从此就活在命运之中的必然与自由。</p>
+</blockquote>
+<p>真正的自由是“从心所欲不逾矩”，这是相当高的境界。</p>
+<blockquote>
+<p>如果带着强烈的预设和反感，你就没有办法真的认识这个人……把一个人送回到他的生活位置和肇事起点，才能了解和理解，只有不把这个人孤立和开除出去，才能看清这个事件对时代生活的意义。</p>
+</blockquote>
+<p>我们总是倾向于怀有强烈的偏见评判他人，殊不知任何事情都有缘由，未经人苦，莫劝人善。</p>
+<blockquote>
+<p>什么是幸福？这就是幸福，进步就是幸福。我的起点太低，所以用不着发愁别的，接下来几十年要做的，只是让自己从蒙昧中一点点解缚出来，这是一个穷尽一生也完成不了的工作，想到这点就踏实了。</p>
+</blockquote>
+<p>喜欢这句话，我没有什么可畏惧的，每一步都是向上走，只顾一往无前就好。自反而不缩，虽千万人，吾往矣。</p>
+<blockquote>
+<p>你必须退让的时候，就必须退让。但在你必须选择机会前进的时候，必须前进。这是一种火候的拿捏，需要对自己的终极目标非常清醒，非常冷静，对支撑这种目标的理念非常清醒，非常冷静。你非常清楚地知道你的靶子在哪儿，退到一环，甚至脱靶都没有关系。环境需要你脱靶的时候，你可以脱靶，这就是运作的策略，但你不能失去自己的目标。那是堕落。</p>
+</blockquote>
+<p>这是陈虻的智慧，学着点儿，时不时看看。</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/%E8%AF%BB%E4%B9%A6/"># 读书</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2023/06/21/%E4%BB%A5%E4%B8%80%E7%A7%8D%E5%A5%87%E6%80%AA%E7%9A%84%E6%83%85%E6%84%9F%E5%91%8A%E5%88%AB%E5%A4%A7%E4%BA%8C/">以一种奇怪的情感告别大二</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Studeas | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
