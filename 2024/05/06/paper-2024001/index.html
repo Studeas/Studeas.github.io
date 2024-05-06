@@ -15,7 +15,7 @@
 
 
 
-<title>文献阅读 | Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware | Studeas 的博客</title>
+<title>文献阅读 | (ALOHA) Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware | Studeas 的博客</title>
 
 
 
@@ -125,11 +125,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">文献阅读 | Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware</h1>
+            <h1 class="post-title">文献阅读 | (ALOHA) Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware</h1>
             
                 <div class="post-meta">
                     
@@ -145,7 +210,17 @@
         </header>
 
         <div class="post-content">
-            <p>你好。</p>
+            <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>论文标题：<strong>Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware 利用低成本硬件学习细粒度双手操作技巧</strong></p>
+<p>其他信息：Stanford, UCB, Meta. RSS 2023</p>
+<p>关键词：low-cost hardware, manipulation, imitation learning</p>
+<p>link：<a target="_blank" rel="noopener" href="https://tonyzhaozh.github.io/aloha/">tonyzhaozh.github.io&#x2F;aloha&#x2F;</a></p>
+<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><h3 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h3><p>提出了一个低成本的系统，直接从通过自定义远程操作界面收集的真实演示中执行端到端的模仿学习，以应对要求机器人高成本高精度的问题。</p>
+<h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>开发了一种新颖的算法 Action Chunking with Transformers (ACT)，它通过简单地预测块中的动作来减少有效范围，以应对策略 error 随时间推移而复合导致偏离训练分布的问题。</p>
+<p>预测一些列动作（action chunk）而非标准行为克隆方法中的预测单个动作。</p>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><p>**Fine-Grained: **细粒度。参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/HoneyTYX/p/9396446.html">https://www.cnblogs.com/HoneyTYX/p/9396446.html</a></p>
+<p>**Behavior Cloning: **行为克隆，模仿学习的一种方法。使用监督学习的思路，直接学习专家策略。参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/chapter/3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">模仿学习 (boyuai.com)</a></p>
+<p><strong>Compound error: <strong>复合误差，BC 也存在很大的局限性，该局限在数据量比较小的时候犹为明显。具体来说，由于通过 BC 学习得到的策略只是拿小部分专家数据进行训练，因此 BC 只能在专家数据的状态分布下预测得比较准。然而，强化学习面对的是一个序贯决策问题，通过 BC 学习得到的策略在和环境交互过程中不可能完全学成最优，只要存在一点偏差，就有可能导致下一个遇到的状态是在专家数据中没有见过的。此时，由于没有在此状态（或者比较相近的状态）下训练过，策略可能就会随机选择一个动作，这会导致下一个状态进一步偏离专家策略遇到的的数据分布。最终，该策略在真实环境下不能得到比较好的效果，这被称为行为克隆的</strong>复合误差</strong>（compounding error）问题，如图 15-1 所示。</p>
+<p>**Conditional VAE: **条件变分自编码器。</p>
 
         </div>
 
@@ -156,9 +231,9 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/manipulation/"># manipulation</a>
-                    
                         <a href="/tags/paper/"># paper</a>
+                    
+                        <a href="/tags/robot-manipulation/"># robot manipulation</a>
                     
                         
                 </span>
