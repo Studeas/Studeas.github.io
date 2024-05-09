@@ -210,25 +210,32 @@
         </header>
 
         <div class="post-content">
-            <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>英文标题：Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware </p>
+            <hr>
+<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>英文标题：Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware </p>
 <p>标题翻译：利用低成本硬件学习细粒度双手操作技巧</p>
 <p>其他信息：Stanford, UCB, Meta. RSS 2023</p>
 <p>关键词：low-cost hardware, manipulation, imitation learning</p>
 <p>link：<a target="_blank" rel="noopener" href="https://tonyzhaozh.github.io/aloha/">tonyzhaozh.github.io&#x2F;aloha&#x2F;</a></p>
-<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p>&#x3D;&#x3D;主要贡献&#x3D;&#x3D;：低成本的精细操作学习系统，包含一套远程操作系统和一种新颖的模仿学习算法，硬件、算法双层面。</p>
+<h2 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h2><p><strong>主要贡献</strong>：低成本的精细操作学习系统，包含一套远程操作系统和一种新颖的模仿学习算法，硬件、算法双层面。</p>
 <h3 id="ALOHA"><a href="#ALOHA" class="headerlink" title="ALOHA"></a>ALOHA</h3><p>提出了一个低成本的系统，直接从通过自定义远程操作界面收集的真实演示中执行端到端的模仿学习，以应对要求机器人高成本高精度的问题。</p>
 <h3 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h3><p>开发了一种新颖的算法 Action Chunking with Transformers (ACT)，它通过简单地预测块（Action Chunk）中的动作来减少有效范围，即预测一些列动作（Action Chunk）而非标准行为克隆方法中的预测单个动作，以应对策略 error 随时间推移而复合导致偏离训练分布的问题（Compound Error 问题）。</p>
 <p>ACT算法架构如下图：</p>
-<p>![](&#x2F;image&#x2F;ACT architecture.png)</p>
-<p>（需要解决一下图片加载问题。。。</p>
-<p>&#x3D;&#x3D;算法 pipeline&#x3D;&#x3D;：</p>
-<p>To train ACT on a new task, we first collect human demonstrations using ALOHA. We record the joint positions of the leader robots (i.e. input from the human operator) and use them as actions. It is important to use the leader joint positions instead of the follower’s, because the amount of force applied is implicitly defined by the difference between them, through the low-level PID controller. The observations are composed of the current joint positions of follower robots and the image feed from 4 cameras. Next, we train ACT to predict the sequence of future actions given the current observations. An action here corresponds to the target joint positions for both arms in the next timestep. Intuitively, ACT tries to imitate what a human operator would do in the following timesteps given current observations. These target joint positions are then tracked by the low-level, high-frequency PID controller inside Dynamixel motors. At test time, we load the policy that achieves the lowest validation loss and roll it out in the environment. The main challenge that arises is compounding errors, where errors from previous actions lead to states that are outside of training distribution.</p>
+<p><img src="/../image/ACTarchitecture.jpg"></p>
+<h4 id="算法-pipeline"><a href="#算法-pipeline" class="headerlink" title="算法 pipeline"></a>算法 pipeline</h4><p>To train ACT on a new task, we first collect human demonstrations using ALOHA. We record the joint positions of the leader robots (i.e. input from the human operator) and use them as actions. It is important to use the leader joint positions instead of the follower’s, because the amount of force applied is implicitly defined by the difference between them, through the low-level PID controller. The observations are composed of the current joint positions of follower robots and the image feed from 4 cameras. Next, we train ACT to predict the sequence of future actions given the current observations. An action here corresponds to the target joint positions for both arms in the next timestep. Intuitively, ACT tries to imitate what a human operator would do in the following timesteps given current observations. These target joint positions are then tracked by the low-level, high-frequency PID controller inside Dynamixel motors. At test time, we load the policy that achieves the lowest validation loss and roll it out in the environment. The main challenge that arises is compounding errors, where errors from previous actions lead to states that are outside of training distribution.</p>
 <p>为了训练 ACT 完成一项新任务，我们首先使用 ALOHA 收集人类演示。我们记录领导者机器人的关节位置（即来自人类操作员的输入）并将它们用作动作。使用引线关节位置而不是从动器位置很重要，因为通过低级 PID 控制器，施加的力的大小由它们之间的差值隐式定义。观测结果由跟随机器人的当前联合位置和来自 4 个摄像头的图像馈送组成。接下来，我们训练 ACT 以预测给定当前观测值的未来行动序列。此处的动作对应于下一个时间步中双臂的目标关节位置。直观地说，ACT试图模仿人类操作员在给定当前观测结果的以下时间步长中会做什么。然后，Dynamixel 电机内部的低电平、高频 PID 控制器跟踪这些目标关节位置。在测试时，我们加载实现最低验证损失的策略，并在环境中推出。出现的主要挑战是复合错误，其中先前操作的错误会导致训练分布之外的状态。（机翻）</p>
-<hr>
-<p>截止到算法部分的A. 改天继续，晚安~</p>
+<h4 id="算法细节"><a href="#算法细节" class="headerlink" title="算法细节"></a>算法细节</h4><img src="../image/act流程.jpg" style="zoom:70%;" />
+
+<ul>
+<li>动作块、时间整合</li>
+</ul>
+<p>每k步，智能体收到一次观测，产生下k步的动作并序列执行，策略建模为$\pi_\theta(a_{t:t+k}|s_t)$。同时为了改善连续性差的问题，每一个时间步都进行算法推断，并对每个时间步对应的k个推断结果进行加权平均，得到最终的动作推断结果，如下图：</p>
+<p><img src="/../image/acandte.jpg.png"></p>
+<ul>
+<li>从</li>
+</ul>
 <h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="Fine-Grained"><a href="#Fine-Grained" class="headerlink" title="Fine-Grained"></a>Fine-Grained</h3><p>细粒度。参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/HoneyTYX/p/9396446.html">https://www.cnblogs.com/HoneyTYX/p/9396446.html</a></p>
 <h3 id="Behavior-Cloning"><a href="#Behavior-Cloning" class="headerlink" title="Behavior Cloning:"></a>Behavior Cloning:</h3><p>行为克隆，模仿学习的一种方法。使用监督学习的思路，直接学习专家策略。参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/chapter/3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">模仿学习 (boyuai.com)</a></p>
-<h3 id="Compound-error"><a href="#Compound-error" class="headerlink" title="Compound error"></a>Compound error</h3><p>复合误差，BC 也存在很大的局限性，该局限在数据量比较小的时候犹为明显。具体来说，由于通过 BC 学习得到的策略只是拿小部分专家数据进行训练，因此 BC 只能在专家数据的状态分布下预测得比较准。然而，强化学习面对的是一个序贯决策问题，通过 BC 学习得到的策略在和环境交互过程中不可能完全学成最优，只要存在一点偏差，就有可能导致下一个遇到的状态是在专家数据中没有见过的。此时，由于没有在此状态（或者比较相近的状态）下训练过，策略可能就会随机选择一个动作，这会导致下一个状态进一步偏离专家策略遇到的的数据分布。最终，该策略在真实环境下不能得到比较好的效果，这被称为行为克隆的复合误差（compounding error）问题，如图 15-1 所示。</p>
+<h3 id="Compound-error"><a href="#Compound-error" class="headerlink" title="Compound error"></a>Compound error</h3><p>复合误差，BC 也存在很大的局限性，该局限在数据量比较小的时候尤为明显。具体来说，由于通过 BC 学习得到的策略只是拿小部分专家数据进行训练，因此 BC 只能在专家数据的状态分布下预测得比较准。然而，强化学习面对的是一个序贯决策问题，通过 BC 学习得到的策略在和环境交互过程中不可能完全学成最优，只要存在一点偏差，就有可能导致下一个遇到的状态是在专家数据中没有见过的。此时，由于没有在此状态（或者比较相近的状态）下训练过，策略可能就会随机选择一个动作，这会导致下一个状态进一步偏离专家策略遇到的的数据分布。最终，该策略在真实环境下不能得到比较好的效果，这被称为行为克隆的复合误差（compounding error）问题，如图 15-1 所示。</p>
 <h3 id="Conditional-VAE"><a href="#Conditional-VAE" class="headerlink" title="Conditional VAE"></a>Conditional VAE</h3><p>条件变分自编码器。其中，自编码器是指通过编码器和解码器两个函数可以实现从自己到自己的映射的网络。（先扔一个参考链接：<a target="_blank" rel="noopener" href="https://ijdykeman.github.io/ml/2016/12/21/cvae.html">https://ijdykeman.github.io/ml/2016/12/21/cvae.html</a> ，这篇文章似乎不错~）</p>
 
         </div>
