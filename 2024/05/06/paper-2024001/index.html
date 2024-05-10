@@ -231,12 +231,25 @@
 <p>每k步，智能体收到一次观测，产生下k步的动作并序列执行，策略建模为$\pi_\theta(a_{t:t+k}|s_t)$。同时为了改善连续性差的问题，每一个时间步都进行算法推断，并对每个时间步对应的k个推断结果进行加权平均，得到最终的动作推断结果，如下图：</p>
 <p><img src="/../image/acandte.jpg.png"></p>
 <ul>
-<li>从</li>
+<li>生成式模型</li>
 </ul>
+<p>CAVE包含一个encoder和一个decoder，encoder用来训练decoder，测试时弃用。encoder以当前观测和动作序列为输入（忽略images以加速训练），预测风格变量z的均值和方差，并将其参数化为对角高斯分布。decode以z和当前观测（images和关节位置）为条件预测动作序列。模型目标函数式最大化示教动作块的对数似然，包含重建损失和正则化两项。</p>
+<ul>
+<li>实现 ACT</li>
+</ul>
+<p>CAVE encoder使用BERT-like transformer来实现。编码器的输入是来自演示数据集的当前关节位置和长度为 k 的目标动作序列，前面添加了类似于 BERT 的学习“[CLS]”标记。CAVE decoder使用ResNet图像编码器、transformer的编码器和解码器来实现。</p>
+<p>算法详细结构：</p>
+<p><img src="/../image/ACT%E8%AF%A6%E7%BB%86%E7%BB%93%E6%9E%84.jpg"></p>
+<p>实验部分比较solid，包含真实任务、仿真任务，与baseline进行了成功率对比。还进行了消融实验，说明了各个算法重要结构的作用。本笔记省略该部分内容。</p>
 <h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><h3 id="Fine-Grained"><a href="#Fine-Grained" class="headerlink" title="Fine-Grained"></a>Fine-Grained</h3><p>细粒度。参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/HoneyTYX/p/9396446.html">https://www.cnblogs.com/HoneyTYX/p/9396446.html</a></p>
 <h3 id="Behavior-Cloning"><a href="#Behavior-Cloning" class="headerlink" title="Behavior Cloning:"></a>Behavior Cloning:</h3><p>行为克隆，模仿学习的一种方法。使用监督学习的思路，直接学习专家策略。参考：<a target="_blank" rel="noopener" href="https://hrl.boyuai.com/chapter/3/%E6%A8%A1%E4%BB%BF%E5%AD%A6%E4%B9%A0/">模仿学习 (boyuai.com)</a></p>
 <h3 id="Compound-error"><a href="#Compound-error" class="headerlink" title="Compound error"></a>Compound error</h3><p>复合误差，BC 也存在很大的局限性，该局限在数据量比较小的时候尤为明显。具体来说，由于通过 BC 学习得到的策略只是拿小部分专家数据进行训练，因此 BC 只能在专家数据的状态分布下预测得比较准。然而，强化学习面对的是一个序贯决策问题，通过 BC 学习得到的策略在和环境交互过程中不可能完全学成最优，只要存在一点偏差，就有可能导致下一个遇到的状态是在专家数据中没有见过的。此时，由于没有在此状态（或者比较相近的状态）下训练过，策略可能就会随机选择一个动作，这会导致下一个状态进一步偏离专家策略遇到的的数据分布。最终，该策略在真实环境下不能得到比较好的效果，这被称为行为克隆的复合误差（compounding error）问题，如图 15-1 所示。</p>
 <h3 id="Conditional-VAE"><a href="#Conditional-VAE" class="headerlink" title="Conditional VAE"></a>Conditional VAE</h3><p>条件变分自编码器。其中，自编码器是指通过编码器和解码器两个函数可以实现从自己到自己的映射的网络。（先扔一个参考链接：<a target="_blank" rel="noopener" href="https://ijdykeman.github.io/ml/2016/12/21/cvae.html">https://ijdykeman.github.io/ml/2016/12/21/cvae.html</a> ，这篇文章似乎不错~）</p>
+<h3 id="Diagonal-Gaussian"><a href="#Diagonal-Gaussian" class="headerlink" title="Diagonal Gaussian"></a>Diagonal Gaussian</h3><p>对角高斯分布。深度RL中常见的随机策略，用于连续状态空间。</p>
+<h3 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h3><p>利用注意力机制的深度学习模型。参考：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Transformer%E6%A8%A1%E5%9E%8B">https://zh.wikipedia.org/wiki/Transformer%E6%A8%A1%E5%9E%8B</a></p>
+<h3 id="BERT、pre-training"><a href="#BERT、pre-training" class="headerlink" title="BERT、pre-training"></a>BERT、pre-training</h3><p>参考：<a target="_blank" rel="noopener" href="https://paddlepedia.readthedocs.io/en/latest/tutorials/pretrain_model/pretrain_model_description.html">https://paddlepedia.readthedocs.io/en/latest/tutorials/pretrain_model/pretrain_model_description.html</a></p>
+<h3 id="token"><a href="#token" class="headerlink" title="token"></a>token</h3><p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/667023483">https://zhuanlan.zhihu.com/p/667023483</a></p>
+<h3 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h3><p>参考：<a target="_blank" rel="noopener" href="https://zh.d2l.ai/chapter_convolutional-modern/resnet.html">https://zh.d2l.ai/chapter_convolutional-modern/resnet.html</a></p>
 
         </div>
 
@@ -250,6 +263,8 @@
                         <a href="/tags/paper/"># paper</a>
                     
                         <a href="/tags/robot-manipulation/"># robot manipulation</a>
+                    
+                        <a href="/tags/imitation-learning/"># imitation learning</a>
                     
                         
                 </span>
