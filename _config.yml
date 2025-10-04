@@ -26,7 +26,7 @@ author:
   avatar           : "profile.png"
   name             : "Xiaokang Sun"
   pronouns         : # example: "she/her"  
-  bio              : "Interested in robot learning, looking for PhD opportunities."
+  bio              : "Interested in robot learning."
   location         : "Atlanta, GA"
   employer         : "Georgia Tech"
   uri              : # URL
@@ -39,10 +39,13 @@ author:
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : # "https://orcid.org/0009-0003-5380-5136"
+    cv             : "/files/cv.pdf"
   semantic         : # URL
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL
   scopus           : # URL
+
+
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site

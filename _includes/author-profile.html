@@ -68,6 +68,9 @@
       {% if author.inspire-hep %}
         <li><a href="{{ author.inspire-hep }}"><i class="ai ai-inspire ai-fw icon-pad-right"></i>INSPIRE-HEP</a></li>
       {% endif %}
+      {% if author.cv %}
+        <li><a href="{{ author.cv | prepend: base_path }}"><i class="fas fa-fw fa-file-pdf icon-pad-right" aria-hidden="true"></i>CV (PDF)</a></li>
+      {% endif %}
 
       <!-- Font Awesome icons / Repositories and software development -->
       {% if author.bitbucket %}
