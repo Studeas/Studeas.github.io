@@ -3,7 +3,7 @@ title: "UniOcc: A Unified Benchmark for Occupancy Forecasting and Prediction in 
 collection: publications
 category: conferences
 permalink: /publication/2025-10-03-paper-title-number-1
-excerpt: 'Yuping Wang, Xiangyu Huang†, **Xiaokang Sun†**, Mingxuan Yan, Shuo Xing, Zhengzhong Tu, Jiachen Li'
+excerpt: 'Yuping Wang, Xiangyu Huang^†, **Xiaokang Sun†^**, Mingxuan Yan, Shuo Xing, Zhengzhong Tu, Jiachen Li'
 date: 2025-07-15
 venue: 'International Conference on Computer Vision (ICCV)'
 paperurl: 'https://arxiv.org/pdf/2503.24381'
