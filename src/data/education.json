@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "school": "Georgia Institute of Technology",
+    "degree": "M.S.",
+    "major": "Computer Science",
+    "start": "Aug, 2025",
+    "end": "Jun, 2027 (expected)",
+    "logo": "/gt-logo.png"
+  },
+  {
+    "id": 2,
+    "school": "Tsinghua University",
+    "degree": "B.Eng.",
+    "major": "Automation",
+    "start": "Aug, 2021",
+    "end": "Jun, 2025",
+    "logo": "/tsinghua-logo.png"
+  }
+]

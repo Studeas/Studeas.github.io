@@ -1,0 +1,9 @@
+[
+    {
+      "id": 101,
+      "title": "Gaussian Mixture Models (GMM) & Expectation–Maximization (EM)",
+      "date": "Oct 01, 2025",
+      "summary": "This note combines the CS 7641 course slides with complementary materials, reinforcing the understanding of **GMM** and the **EM algorithms**.",
+      "content": "---"
+    }
+  ]

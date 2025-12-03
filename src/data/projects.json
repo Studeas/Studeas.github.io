@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "",
+        "description": "",
+        "tags": ["WebGL", "React", "Python"],
+        "link": "#"
+    },
+    {
+      "id": 2,
+      "title": "Academic Theme Jekyll",
+      "description": "A minimalist, paper-like Jekyll theme designed for academics and researchers.",
+      "tags": ["Jekyll", "CSS", "Design"],
+      "link": "#"
+    }
+]

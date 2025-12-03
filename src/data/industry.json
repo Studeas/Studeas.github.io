@@ -1,0 +1,12 @@
+[
+  {
+    "id": "industry-1",
+    "company": "Booster Robotics",
+    "role": "Student Research Intern, Reinforcement Learning",
+    "start": "Jun 2025",
+    "end": "Sep 2025",
+    "logo": "/booster.png",
+    "link": "https://www.booster.tech/",
+    "description": "Worked on reinforcement learning algorithms for humanoid motion synthesis and control."
+  }
+]

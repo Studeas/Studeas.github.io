@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "title": "Attention-based HAPPO for Skill-Diverse Teams in Robot Soccer Games",
+        "authors": "Hanzhong Zhong*, Xiaokang Sun*, Dongjie Zhu, Xiang Li",
+        "venue": "Under Review, in submission to IEEE International Conference on Robotics and Automation (ICRA)",
+        "year": "2026",
+        "image": "/GRF2.png"
+    },
+    {
+        "id": 2,
+        "title": "UniOcc: A Unified Benchmark for Occupancy Forecasting and Prediction in Autonomous Driving",
+        "authors": "Yuping Wang, Xiangyu Huang*, Xiaokang Sun*, and Mingxuan Yan, Shuo Xing, Zhengzhong Tu, Jiachen Li",
+        "venue": "Accepted to IEEE/CVF International Conference on Computer Vision (ICCV)",
+        "year": "2025",
+        "image": "/uniocc_pre.png",
+        "paperLink": "https://arxiv.org/pdf/2503.24381?",
+        "codeLink": "https://uniocc.github.io/"
+    }
+]

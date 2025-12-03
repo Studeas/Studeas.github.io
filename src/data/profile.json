@@ -1,0 +1,25 @@
+{
+    "enName": "Xiaokang Sun",
+    "title": "Computer Science",
+    "university": "Georgia Tech.",
+    "email": "xiaokang.sun.gt@gmail.com",
+    "github": "https://github.com/Studeas",
+    "googleScholar": "https://scholar.google.com/citations?user=2sWnAjQAAAAJ&hl=en",
+    "cv": "/cv.pdf",
+    "location": "Atlanta, GA",
+    "enBio": [
+        "--> *Looking for PhD opportunities starting from 2027 Fall.*",
+        "**Research Interests**: Robot Learning, Planning and Control.",
+        "👋 Hi, I'm currently a first-year master student studying at Georgia Tech. Before coming to Atlanta, I earned a bachelor's degree in Automation from Tsinghua University in Beijing.",
+        "",
+        
+        "For my thesis, I worked under [Professor Xiang Li](https://sites.google.com/view/homepageoflixiang/home)'s supervision, focusing on multi-agent RL. In summer 2024, I visited [Professor Jiachen Li](https://jiachenli94.github.io/)'s lab at UC Riverside and participated in autonomous driving projects.",
+        "",
+        "Beyond academic experiences, I completed an internship at [Booster Robotics](https://www.booster.tech/) in 2025, where I worked with [Professor Mingguo Zhao](https://www.au.tsinghua.edu.cn/en/info/1110/3296.htm) on humanoid trajectory synthesis and RL-based control.",
+        ""
+    ],
+    "avatar": "/back.jpg"
+  }
+
+
+
