@@ -14,8 +14,9 @@ import {
   BookOpen,
   Layers,
   Moon,
-  Sun
-  ,Cpu
+  Sun,
+  Cpu,
+  Award
 } from 'lucide-react';
 
 // --- 导入数据文件 ---
@@ -24,6 +25,7 @@ import publicationsData from './data/publications.json';
 import projectsData from './data/projects.json';
 import educationData from './data/education.json';
 import industryData from './data/industry.json';
+import serviceData from './data/service.json';
 
 // 使用导入的数据
 const profile = {
@@ -40,6 +42,7 @@ const publications = publicationsData;
 const projects = projectsData;
 const education = educationData;
 const industry = industryData;
+const service = serviceData;
 // Blogs temporarily disabled — use empty list to avoid rendering
 const blogs = [];
 
@@ -264,7 +267,27 @@ const HomeView = ({ onReadBlog }) => {
         </div>
       </section>
 
-        
+      {/* Academic Service Section */}
+      <section id="service">
+        <SectionTitle><Award className="mr-2 w-5 h-5" /> Academic Service</SectionTitle>
+        <div className="space-y-6">
+          {service.map((category) => (
+            <div key={category.id} className="">
+              <h3 className="text-base font-bold text-stone-800 dark:text-stone-200 mb-3 font-serif">
+                {category.type}
+              </h3>
+              <ul className="space-y-2 ml-0">
+                {category.items.map((item, idx) => (
+                  <li key={idx} className="text-stone-600 dark:text-stone-400 text-sm flex items-start leading-relaxed">
+                    <span className="text-red-800 dark:text-red-400 mr-2 mt-1 shrink-0">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Projects Section */}
       {/* <section id="projects">
@@ -434,6 +457,7 @@ const App = () => {
                    {/* Blog link temporarily hidden */}
                    <a href="#industry" className="hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Industry</a>
                    <a href="#education" className="hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Education</a>
+                   <a href="#service" className="hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Service</a>
                  </>
                ) : (
                  <button onClick={handleBack} className="hover:text-stone-900 dark:hover:text-stone-200 transition-colors">Home</button>

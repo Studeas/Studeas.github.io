@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "type": "Journal Reviewer",
+    "items": [
+      "IEEE Internet of Things Journal (IoTJ)"
+    ]
+  },
+  {
+    "id": 2,
+    "type": "Conference Reviewer",
+    "items": [
+      "IEEE International Conference on Robotics and Automation (ICRA) 2026"
+    ]
+  }
+]
