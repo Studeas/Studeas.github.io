@@ -488,6 +488,11 @@ const App = () => {
       <footer className="max-w-4xl mx-auto px-6 py-12 border-t-2 border-stone-200/50 dark:border-stone-700/50 text-center text-stone-400 dark:text-stone-500 text-sm font-serif transition-colors duration-300">
         <p>&copy; {new Date().getFullYear()} {profile.enName}. Built with React & Tailwind.</p>
         <p className="mt-2 text-xs">Simplicity is the ultimate sophistication.</p>
+        <div className="mt-6 flex justify-center opacity-70 hover:opacity-100 transition-opacity duration-300">
+          <a href="hhttps://clustrmaps.com/site/1c9sx" title="Visit tracker">
+            <img src="//www.clustrmaps.com/map_v2.png?d=r5c__Trucjt_ec8t6k2L6JwsNgbI7PUOoAGHHvLGCcU&cl=ffffff" alt="Visitor Map" style={{borderRadius: '4px'}} />
+          </a>
+        </div>
       </footer>
 
       {/* 简单的全局样式覆盖，确保字体加载 */}
